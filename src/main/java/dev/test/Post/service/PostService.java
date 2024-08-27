@@ -1,7 +1,6 @@
-package Post.service;
+package dev.test.Post.service;
 
-import Post.domain.PostEntity;
-import Post.repository.PostRepository;
+import dev.test.Post.repository.PostRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
