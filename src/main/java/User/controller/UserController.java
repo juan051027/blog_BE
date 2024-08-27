@@ -17,18 +17,18 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/user/join")
     public Long create(@RequestBody UserEntity user){
         return userService.join(user);
 
     }
 
-    @GetMapping("/user")
+    @GetMapping("/user/findall")
     public List<UserEntity> getAllUsers(){
         return userService.findUsers();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/find")
     public Optional<UserEntity> getOneUser(Long id) {
         return userService.findOneUser(id);
     }
@@ -38,7 +38,7 @@ public class UserController {
         return userService.updateUser(name, change);
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/user/delete")
     public Long deleteUser(long id){
         return userService.deleteUser(id);
     }
