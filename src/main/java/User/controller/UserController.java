@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin
 @RestController
 public class UserController {
 
@@ -28,12 +28,12 @@ public class UserController {
         return userService.findUsers();
     }
 
-    @GetMapping("/boards/{id}")
+    @GetMapping("/user/{id}")
     public Optional<UserEntity> getOneUser(Long id) {
         return userService.findOneUser(id);
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/user/update")
     public UserEntity updateUser(String name, String change){
         return userService.updateUser(name, change);
     }
