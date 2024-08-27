@@ -3,7 +3,6 @@ package User.service;
 import User.domain.UserEntity;
 import User.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import lombok.Getter;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -36,8 +35,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<UserEntity> findOneUser(String name){
-        return userRepository.findByName(name);
+    public Optional<UserEntity> findOneUser(Long id){
+        return userRepository.findById(id);
     }
 
     @Transactional
