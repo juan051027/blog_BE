@@ -12,6 +12,4 @@ public class PostService {
     public PostService(PostRepository postRepository){
         this.postRepository = postRepository;
     }
-
-
 }
