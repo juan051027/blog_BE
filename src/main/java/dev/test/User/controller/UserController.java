@@ -5,7 +5,7 @@ import dev.test.User.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @CrossOrigin("*")
 @RequestMapping("/user")
@@ -20,8 +20,8 @@ public class UserController {
     }
 
     @PostMapping
-    public UserEntity create(@RequestParam("name") String user){
-        return userService.createUser(user);
+    public UserEntity create(@RequestParam(value="name") String user, @RequestParam(value="pw") String pw){
+        return userService.createUser(user, pw);
 
     }
 
@@ -44,19 +44,5 @@ public class UserController {
     public Long deleteUser(long id){
         return userService.deleteUser(id);
     }
-
-    /*
-    @PostMapping("/login")
-    public ResponseEntity<Map<String, Object>> login(@RequestParam("name") String userName) {
-        UserEntity user = userService.login(userName);
-
-        Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("success", user != null);
-        requestMap.put("message", user != null ? "로그인 성공" : "로그인 실패");
-        requestMap.put("userInfo", user);
-
-        return ResponseEntity.status(HttpStatus.OK).body(requestMap);
-    }
-    */
 
 }

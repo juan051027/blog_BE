@@ -20,9 +20,10 @@ public class UserService {
         return user.getId();
     }
 
-    public UserEntity createUser(String name){
+    public UserEntity createUser(String name, String pw){
         UserEntity userEntity = new UserEntity();
         userEntity.setName(name);
+        userEntity.setPassword(pw);
         userRepository.save(userEntity);
         return userEntity;
     }
