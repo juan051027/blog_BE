@@ -41,7 +41,7 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
-    public UserEntity updateUser(String name, String changeName){
+    public UserEntity updateUserName(String name, String changeName){
         UserEntity userEntity = userRepository.findByName(name);
         if(userEntity == null) return null;
 

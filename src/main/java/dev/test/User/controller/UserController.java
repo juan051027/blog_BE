@@ -30,14 +30,14 @@ public class UserController {
         return userService.findUsers();
     }
 
-    @GetMapping
+    @GetMapping("/user")
     public UserEntity getOneUser(Long id) {
         return userService.findOneUser(id);
     }
 
     @PutMapping("/user")
-    public UserEntity updateUser(String name, String change){
-        return userService.updateUser(name, change);
+    public UserEntity updateUserName(String name, String change){
+        return userService.updateUserName(name, change);
     }
 
     @DeleteMapping("/user")
