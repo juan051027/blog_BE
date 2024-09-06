@@ -45,7 +45,7 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
-    @PutMapping("/online")
+    @PutMapping("/login")
     public UserEntity userLogin(@RequestParam(value="name") String name,@RequestParam(value="pw")String pw){
         return userService.userLogin(name,pw);
     }
