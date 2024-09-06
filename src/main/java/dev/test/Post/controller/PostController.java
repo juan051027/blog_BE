@@ -28,22 +28,22 @@ public class PostController {
     }
 
     @GetMapping("/all")
-    public List<PostEntity> getAllUsers(){
+    public List<PostEntity> getAllPosts(){
         return postService.findPosts();
     }
 
     @GetMapping("/post")
-    public PostEntity getOneUser(Long id) {
+    public PostEntity getOnePost(Long id) {
         return postService.findOnePost(id);
     }
 
     @PutMapping("/post")
-    public PostEntity updateUserName(String name, String change){
+    public PostEntity updateUserPost(String name, String change){
         return postService.updateUserPost(name, change);
     }
 
     @DeleteMapping("/post")
-    public Long deleteUser(long id){
+    public Long deletePost(long id){
         return postService.deletePost(id);
     }
 
