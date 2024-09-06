@@ -4,7 +4,6 @@ import dev.test.User.domain.UserEntity;
 import dev.test.User.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 import java.lang.String;
 
 
@@ -54,5 +53,25 @@ public class UserService {
     public Long deleteUser(long id){
         userRepository.deleteById(id);
         return id;
+    }
+
+    public UserEntity userLogin(String name, String pw){
+        UserEntity userEntity = userRepository.findByName(name);
+        String userpassword = userEntity.getPassword();
+
+        if(userpassword.equals(pw)) userEntity.setOnline(true);
+        userRepository.save(userEntity);
+        return userEntity;
+    }
+
+    public boolean loginCheck(String name){
+        UserEntity userEntity = userRepository.findByName(name);
+        boolean onlinestatus = userEntity.isOnline();
+        return onlinestatus;
+    }
+
+    public String getUsername(String name){
+        UserEntity userEntity = userRepository.findByName(name);
+        return userEntity.getName();
     }
 }

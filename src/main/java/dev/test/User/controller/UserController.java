@@ -30,19 +30,24 @@ public class UserController {
         return userService.findUsers();
     }
 
-    @GetMapping("/user")
+    @GetMapping
     public UserEntity getOneUser(Long id) {
         return userService.findOneUser(id);
     }
 
-    @PutMapping("/user")
+    @PutMapping
     public UserEntity updateUserName(String name, String change){
         return userService.updateUserName(name, change);
     }
 
-    @DeleteMapping("/user")
-    public Long deleteUser(long id){
+    @DeleteMapping
+    public Long deleteUser(@RequestParam(value="id") long id){
         return userService.deleteUser(id);
+    }
+
+    @PutMapping("/online")
+    public UserEntity userLogin(@RequestParam(value="name") String name,@RequestParam(value="pw")String pw){
+        return userService.userLogin(name,pw);
     }
 
 }

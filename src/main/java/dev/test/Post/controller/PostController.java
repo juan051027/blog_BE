@@ -5,6 +5,7 @@ import dev.test.Post.domain.PostEntity;
 import dev.test.User.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.lang.String;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class PostController {
     }
 
     @PostMapping
-    public PostEntity create(@RequestParam(value="title") String title, @RequestParam(value="post") String post){
-        return postService.createPost(title, post);
+    public PostEntity create(@RequestParam(value ="name")String name, @RequestParam(value="title") String title, @RequestParam(value="post") String post){
+        return postService.createPost(name, title, post);
 
     }
 
@@ -36,12 +37,12 @@ public class PostController {
         return postService.findOnePost(id);
     }
 
-    @PutMapping("/user")
+    @PutMapping("/post")
     public PostEntity updateUserName(String name, String change){
         return postService.updateUserPost(name, change);
     }
 
-    @DeleteMapping("/user")
+    @DeleteMapping("/post")
     public Long deleteUser(long id){
         return postService.deletePost(id);
     }
