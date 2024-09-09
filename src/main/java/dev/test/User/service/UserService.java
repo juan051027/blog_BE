@@ -70,8 +70,4 @@ public class UserService {
         return onlinestatus;
     }
 
-    public String getUsername(String name){
-        UserEntity userEntity = userRepository.findByName(name);
-        return userEntity.getName();
-    }
 }

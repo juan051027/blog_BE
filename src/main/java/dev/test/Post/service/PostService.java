@@ -8,7 +8,7 @@ import dev.test.User.service.UserService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.lang.Long;
 import java.util.List;
 
 @Service
@@ -19,7 +19,6 @@ public class PostService {
 
     @Autowired
     private UserService userService;
-
 
 
     public PostService(PostRepository postRepository){
@@ -49,8 +48,8 @@ public class PostService {
         return postRepository.findById(id).get();
     }
 
-    public PostEntity updateUserPost(String name, String changePost){
-        PostEntity postEntity = postRepository.findByName(name);
+    public PostEntity updateUserPost(Long id, String changePost){
+        PostEntity postEntity = postRepository.findById(id).get();
         if(postEntity == null) return null;
 
         postEntity.setContent(changePost);
@@ -59,7 +58,7 @@ public class PostService {
         return postEntity;
     }
 
-    public Long deletePost(long id){
+    public Long deletePost(Long id){
         postRepository.deleteById(id);
         return id;
     }

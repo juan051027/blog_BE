@@ -4,10 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.lang.String;
 
 @Entity
@@ -15,6 +13,7 @@ import java.lang.String;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 
 public class UserEntity {
     @Id
@@ -22,6 +21,6 @@ public class UserEntity {
     private Long id;
     private String name;
     private String password;
-    private boolean online=false;
+    private Boolean online=false;
 }
 
