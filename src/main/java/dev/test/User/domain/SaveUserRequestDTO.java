@@ -4,8 +4,7 @@ import lombok.*;
 import dev.test.User.domain.UserEntity;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 @Getter
 @Setter
 

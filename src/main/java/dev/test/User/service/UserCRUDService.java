@@ -8,9 +8,9 @@ import java.lang.String;
 
 
 @Service
-public class UserService {
+public class UserCRUDService {
     private final UserRepository userRepository;
-    public UserService(UserRepository userRepository){
+    public UserCRUDService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
@@ -66,7 +66,7 @@ public class UserService {
 
     public boolean loginCheck(String name){
         UserEntity userEntity = userRepository.findByName(name);
-        boolean onlinestatus = userEntity.isOnline();
+        boolean onlinestatus = userEntity.getOnline();
         return onlinestatus;
     }
 
